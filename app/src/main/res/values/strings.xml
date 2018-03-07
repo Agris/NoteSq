@@ -1,0 +1,5 @@
+<resources>
+    <string name="app_name">Note Sq</string>
+    <string name="edit_text_hint">Enter your text here.</string>
+    <string name="save">Save</string>
+</resources>
