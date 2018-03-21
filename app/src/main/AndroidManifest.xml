@@ -15,7 +15,9 @@
         <activity android:name=".MainActivity">
 
         </activity>
-        <activity android:name=".ImageActivity">
+        <activity android:name=".ImageActivity"
+
+            android:label = "@string/title_activity_image">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
