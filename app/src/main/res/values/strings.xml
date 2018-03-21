@@ -2,4 +2,6 @@
     <string name="app_name">Note Sq</string>
     <string name="edit_text_hint">Enter your text here.</string>
     <string name="save">Save</string>
+    <string name="toast_cant_save">Unable to save note. Is there sufficient space? </string>
+    <string name="title_activity_image">Note Squirrel </string>
 </resources>
