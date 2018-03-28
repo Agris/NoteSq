@@ -1,15 +1,19 @@
 package com.example.agris.notesq;
 
 import android.content.DialogInterface;
+import android.graphics.Point;
 import android.support.v7.app.AlertDialog;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.util.Log;
+import android.view.Menu;
 import android.view.MotionEvent;
 import android.view.View;
 import android.widget.ImageView;
 
-public class ImageActivity extends AppCompatActivity {
+import java.util.List;
+
+public class ImageActivity extends AppCompatActivity implements PointCollecterListener{
 
     private PointCollector pointCollector = new PointCollector();
 
@@ -20,6 +24,9 @@ public class ImageActivity extends AppCompatActivity {
 
         addTouchListener();
         showPrompt();
+
+        pointCollector.setListener(this);
+
     }
 
     private void showPrompt(){
@@ -38,12 +45,23 @@ public class ImageActivity extends AppCompatActivity {
         AlertDialog dlg = builder.create();
 
         dlg.show();
-
     }
 
     private void addTouchListener(){
     ImageView image = (ImageView) findViewById(R.id.touch_image);
 
    image.setOnTouchListener(pointCollector);
+    }
+
+    @Override
+    public boolean onCreateOptionsMenu(Menu menu){
+        getMenuInflater().inflate(R.menu.activity_image, menu);
+        return true;
+    }
+
+
+
+    public void pointsCollected(List<Point> points) {
+        Log.d(MainActivity.DEBUGTAG, "Collected points: " + points.size());
     }
 }
