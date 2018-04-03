@@ -16,6 +16,7 @@ import java.util.List;
 public class ImageActivity extends AppCompatActivity implements PointCollecterListener{
 
     private PointCollector pointCollector = new PointCollector();
+    private Database db = new Database(this);
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -63,5 +64,14 @@ public class ImageActivity extends AppCompatActivity implements PointCollecterLi
 
     public void pointsCollected(List<Point> points) {
         Log.d(MainActivity.DEBUGTAG, "Collected points: " + points.size());
+
+        db.storePoints(points);
+
+        List <Point> list = db.getPoints();
+
+        for (Point point :list) {
+            Log.d(MainActivity.DEBUGTAG, String.format("Got point: (%d, %d)", point.x, point.y));
+        }
+
     }
 }
